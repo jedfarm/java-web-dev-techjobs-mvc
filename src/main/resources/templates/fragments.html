@@ -53,5 +53,35 @@
         </table>
     </div>
 
+    <div th:fragment="results-table-single-col">
+        <table class="centeredTable">
+
+            <th:block th:each="job : ${jobs}">
+                <tr>
+                    <td>
+                    <span class="boldFields" >ID: </span>
+                        <span th:text=" ${job.id}"></span>
+                        <br>
+                    <span class="boldFields" >Name: </span>
+                        <span th:text="${job.name}"></span>
+                        <br>
+                    <span class="boldFields" >Employer: </span>
+                        <span th:text="${job.employer}"></span>
+                        <br>
+                    <span class="boldFields" >Location: </span>
+                        <span th:text="${job.location}"></span>
+                        <br>
+                    <span class="boldFields" >Position Type: </span>
+                        <span th:text="${job.positionType}"></span>
+                        <br>
+                    <span class="boldFields" >Skill: </span>
+                        <span th:text="${job.coreCompetency}"></span>
+                    </td>
+                </tr>
+            </th:block>
+
+        </table>
+    </div>
+
 </body>
 </html>
