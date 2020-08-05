@@ -8,7 +8,7 @@
 
 <div class="container body-content">
 
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+    <h1 th:text="${#strings.capitalizeWords('Jobs with ' + toDisplay + ':' + keyword)}"></h1>
 
     <form th:action="@{/search/results}" method = "post">
         <h2>Search by:</h2>

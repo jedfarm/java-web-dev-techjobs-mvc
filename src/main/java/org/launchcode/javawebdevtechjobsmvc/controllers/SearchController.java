@@ -29,7 +29,7 @@ public class SearchController {
     @RequestMapping(value = "results", method=RequestMethod.POST)
     public String displaySearchResults(Model model, @RequestParam String searchType, @RequestParam String searchTerm){
         List<Job> jobs;
-
+        String toDisplay = searchType;
         if(searchType.toLowerCase() == "all" && searchTerm == ""){
             jobs = JobData.findAll();
 
@@ -40,9 +40,14 @@ public class SearchController {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
 
         }
+        if (toDisplay.equalsIgnoreCase("CoreCompetency")){
+            toDisplay = "Skills";
+        }
         model.addAttribute("jobs", jobs);
         model.addAttribute("columns", columnChoices);
         model.addAttribute("previousChoice", searchType);
+        model.addAttribute("keyword", searchTerm);
+        model.addAttribute("toDisplay", toDisplay);
 
         return "search";
     }
