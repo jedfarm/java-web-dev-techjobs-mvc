@@ -7,8 +7,10 @@
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
+    <th:block th:if="${previousChoice}">
+        <h1 th:text="${#strings.capitalizeWords(searchTitle)}"></h1>
+    </th:block>
 
-    <h1 th:text="${#strings.capitalizeWords('Jobs with ' + toDisplay + ':' + keyword)}"></h1>
 
     <form th:action="@{/search/results}" method = "post">
         <h2>Search by:</h2>

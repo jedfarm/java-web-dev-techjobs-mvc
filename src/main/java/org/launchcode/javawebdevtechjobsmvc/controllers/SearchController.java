@@ -46,9 +46,7 @@ public class SearchController {
         model.addAttribute("jobs", jobs);
         model.addAttribute("columns", columnChoices);
         model.addAttribute("previousChoice", searchType);
-        model.addAttribute("keyword", searchTerm);
-        model.addAttribute("toDisplay", toDisplay);
-
+        model.addAttribute("searchTitle", "Jobs with " + toDisplay + ": " + searchTerm);
         return "search";
     }
 
